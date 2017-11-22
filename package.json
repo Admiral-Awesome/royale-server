@@ -1,0 +1,26 @@
+{
+  "name": "royale-server",
+  "version": "1.0.0",
+  "description": "server for sending push notification",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Admiral-Awesome/royale-server.git"
+  },
+  "keywords": [
+    "royale"
+  ],
+  "author": "Admiral_Awesome",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Admiral-Awesome/royale-server/issues"
+  },
+  "homepage": "https://github.com/Admiral-Awesome/royale-server#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mongoose": "^4.13.4"
+  }
+}
