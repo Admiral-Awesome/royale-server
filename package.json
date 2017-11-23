@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/Admiral-Awesome/royale-server#readme",
   "dependencies": {
+    "async": "^2.6.0",
     "express": "^4.16.2",
-    "mongoose": "^4.13.4"
+    "mongoose": "^4.13.4",
+    "node-cron": "^1.2.1",
+    "request": "^2.83.0"
   }
 }

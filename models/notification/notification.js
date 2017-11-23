@@ -5,10 +5,10 @@ var notificationSchema = new Schema({
   device_id: { type : String, required : true},
   game_text: { type : String, required : true},
   game_id: { type : String, required: true},
-  created_at: Date,
-  updated_at: Date
+  created_at: { type: String, required: true},
+  time: { type: String, required: true}
 });
 
-const Notification = mongoose.model('User',notificationSchema);
+const Notification = mongoose.model('Notifications',notificationSchema);
 
 module.exports = Notification;

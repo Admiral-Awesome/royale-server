@@ -2,22 +2,19 @@ const express    = require('express')
 const bodyParser = require('body-parser')
 require('./db');
 const app = express();
-const router = require('./api');
-
+const routerNotification = require('./api').notificationRouter;
+const cron = require('./cron');
+const port    =   process.env.PORT || 8080;
 app.use(bodyParser.json());
 
 app.use('*', function(req, res, next) {
-    console.log('Request URL: ', req.originalUrl,'Request Type:', req.method, ' Time :' , new Date());
+    console.log(req.method,': ', req.originalUrl, ' Time :' , new Date());
     next();
 });
 
-console.log(router);
+app.use('/api', routerNotification);
 
-
-
-let arr = [{ name : 'test'}, { name : 'test1'}, { name: 'test'}];
-
-let nameArr = [];  
-arr.forEach(el => !nameArr.includes(el.name) && nameArr.push(el.name) );
-
-console.log(nameArr);
+app.listen(port, function() {
+    console.log("SERVER STARTED ON PORT ", port);
+    cron.startCron();
+});
