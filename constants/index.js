@@ -6,6 +6,6 @@ module.exports = {
         API_URL: "https://onesignal.com/api/v1/notifications"
     },
     CRON : {
-        TIME : 1 // in minutes
+        TIME : 15 // in minutes
     }
 }

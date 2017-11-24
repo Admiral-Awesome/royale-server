@@ -13,7 +13,7 @@ const startCron = () => {
         console.log('CRON STARTED ', new Date());
         const now = new Date();
         const nowMinusCron = new Date();
-        nowMinusCron.setMinutes(now.getMinutes() - 60);
+        nowMinusCron.setMinutes(now.getMinutes() - CRON.TIME);
         const findObj = {
             time: {
                 "$gte": nowMinusCron, "$lt": now
@@ -40,7 +40,7 @@ const startCron = () => {
 
             });
 
-            console.log(finalResults);
+
             async.parallel(finalResults.map(val => {
                 return function (callback) {
                     const data = {
