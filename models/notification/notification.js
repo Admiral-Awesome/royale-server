@@ -6,7 +6,8 @@ var notificationSchema = new Schema({
   game_text: { type : String, required : true},
   game_id: { type : String, required: true},
   created_at: { type: String, required: true},
-  time: { type: String, required: true}
+  time: { type: String, required: true},
+  type: { type: String, required: true}
 });
 
 const Notification = mongoose.model('Notifications',notificationSchema);

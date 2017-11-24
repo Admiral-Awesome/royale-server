@@ -3,6 +3,7 @@ const router = express.Router();
 const Notification = require('../models').Notification;
 
 router.get('/notifications/:id', (req, res) => {
+ 
     if (!req.params.id)
         return res.status(400).json({ success: false, error: "One of request parameters missing" });
     Notification.find({ device_id: req.params.id }, (err, result) => {
@@ -14,7 +15,7 @@ router.get('/notifications/:id', (req, res) => {
 });
 
 router.post('/notifications', (req, res) => {
-    if (!req.body.device_id || !req.body.game_text || !req.body.game_id || !req.body.time) {
+    if (!req.body.type || !req.body.device_id || !req.body.game_text || !req.body.game_id || !req.body.time) {
         return res.status(400).json({ success: false, error: "One of request parameters missing" });
     }
     const notification = new Notification({
@@ -22,7 +23,8 @@ router.post('/notifications', (req, res) => {
         game_text: req.body.game_text,
         game_id: req.body.game_id,
         created_at: new Date(),
-        time: new Date(req.body.time)
+        time: new Date(req.body.time),
+        type : req.body.type
     });
 
     notification.save((err) => {
